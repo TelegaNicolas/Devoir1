@@ -23,8 +23,6 @@ Le frontend est servi par Nginx, qui agit également comme reverse proxy pour re
     1 - Copier l’exemple de variables d’environnement :
 
             cp .env.example .env
-            modifier POSTGRES_DB par : devoir1db
-            et modifier POSTGRES_PASSWORD par le votre
 
     2 - Construire et démarrer l'application : 
 
