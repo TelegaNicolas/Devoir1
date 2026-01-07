@@ -25,6 +25,7 @@ Le frontend est servi par Nginx, qui agit également comme reverse proxy pour re
             cp .env.example .env
             remplacer POSTGRES_DB par devoir1db
             remplacer POSTGRESS_PASSWORD par le votre
+            npm install
 
     2 - Construire et démarrer l'application : 
 
