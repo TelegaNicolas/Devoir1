@@ -1,0 +1,16 @@
+
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY tp-api-mvc-express/package*.json ./tp-api-mvc-express/
+RUN cd tp-api-mvc-express && npm ci --production
+COPY tp-api-mvc-express ./tp-api-mvc-express
+
+FROM node:18-alpine
+RUN addgroup -S app && adduser -S app -G app
+WORKDIR /app
+COPY --from=builder /app/tp-api-mvc-express ./tp-api-mvc-express
+USER app
+
+ENV NODE_ENV=production
+EXPOSE 3000
+CMD ["node", "tp-api-mvc-express/src/server.js"]
